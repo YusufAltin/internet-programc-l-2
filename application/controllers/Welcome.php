@@ -21,12 +21,15 @@ class Welcome extends CI_Controller {
 	public function index()
 	{
 		$this->load->model("Product_Category_Model");
+		$this->load->model("Branches_Model");
 		$items = $this->Product_Category_Model->getAll();
+		$items1 = $this->Branches_Model->getAll();
 
 		//print_r($items);die();
 
 		$viewData = new stdClass();
 		$viewData->items = $items;
+		$viewData->items1 = $items1;
 		
 		$this->load->view('welcome_message',$viewData);
 	}
